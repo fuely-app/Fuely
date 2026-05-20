@@ -1,0 +1,490 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 90;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		E60932452FBD562C005EF26B /* AntiqueKit in Frameworks */ = {isa = PBXBuildFile; productRef = E60932442FBD562C005EF26B /* AntiqueKit */; };
+		E60932472FBD562C005EF26B /* ColourKit in Frameworks */ = {isa = PBXBuildFile; productRef = E60932462FBD562C005EF26B /* ColourKit */; };
+		E60932492FBD562C005EF26B /* ConstraintKit in Frameworks */ = {isa = PBXBuildFile; productRef = E60932482FBD562C005EF26B /* ConstraintKit */; };
+		E609324B2FBD562C005EF26B /* FontKit in Frameworks */ = {isa = PBXBuildFile; productRef = E609324A2FBD562C005EF26B /* FontKit */; };
+		E609324D2FBD562C005EF26B /* OnboardingKit in Frameworks */ = {isa = PBXBuildFile; productRef = E609324C2FBD562C005EF26B /* OnboardingKit */; };
+		E609324F2FBD562C005EF26B /* SettingsKit in Frameworks */ = {isa = PBXBuildFile; productRef = E609324E2FBD562C005EF26B /* SettingsKit */; };
+		E665BF2F2E87E16D003DB57D /* XMLCoder in Frameworks */ = {isa = PBXBuildFile; productRef = E665BF2E2E87E16D003DB57D /* XMLCoder */; };
+		E665BF352E87F399003DB57D /* OnboardingKit in Frameworks */ = {isa = PBXBuildFile; productRef = E665BF342E87F399003DB57D /* OnboardingKit */; };
+		E67265442FBAF17400571ACF /* AntiqueKit in Frameworks */ = {isa = PBXBuildFile; productRef = E67265432FBAF17400571ACF /* AntiqueKit */; };
+		E67265462FBAF17400571ACF /* ColourKit in Frameworks */ = {isa = PBXBuildFile; productRef = E67265452FBAF17400571ACF /* ColourKit */; };
+		E67265482FBAF17400571ACF /* ConstraintKit in Frameworks */ = {isa = PBXBuildFile; productRef = E67265472FBAF17400571ACF /* ConstraintKit */; };
+		E672654A2FBAF17400571ACF /* FontKit in Frameworks */ = {isa = PBXBuildFile; productRef = E67265492FBAF17400571ACF /* FontKit */; };
+		E672654C2FBAF17400571ACF /* OnboardingKit in Frameworks */ = {isa = PBXBuildFile; productRef = E672654B2FBAF17400571ACF /* OnboardingKit */; };
+		E672654E2FBAF17400571ACF /* SettingsKit in Frameworks */ = {isa = PBXBuildFile; productRef = E672654D2FBAF17400571ACF /* SettingsKit */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		E665BF132E87C19C003DB57D /* Fuely.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Fuely.app; sourceTree = BUILT_PRODUCTS_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
+		E665BF252E87C19D003DB57D /* Exceptions for "Fuely" folder in "Fuely" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Info.plist,
+			);
+			target = E665BF122E87C19B003DB57D /* Fuely */;
+		};
+/* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
+
+/* Begin PBXFileSystemSynchronizedRootGroup section */
+		E665BF152E87C19C003DB57D /* Fuely */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				E665BF252E87C19D003DB57D /* Exceptions for "Fuely" folder in "Fuely" target */,
+			);
+			path = Fuely;
+			sourceTree = "<group>";
+		};
+/* End PBXFileSystemSynchronizedRootGroup section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		E665BF102E87C19B003DB57D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			files = (
+				E672654A2FBAF17400571ACF /* FontKit in Frameworks */,
+				E67265482FBAF17400571ACF /* ConstraintKit in Frameworks */,
+				E665BF352E87F399003DB57D /* OnboardingKit in Frameworks */,
+				E67265462FBAF17400571ACF /* ColourKit in Frameworks */,
+				E60932452FBD562C005EF26B /* AntiqueKit in Frameworks */,
+				E60932472FBD562C005EF26B /* ColourKit in Frameworks */,
+				E609324B2FBD562C005EF26B /* FontKit in Frameworks */,
+				E609324D2FBD562C005EF26B /* OnboardingKit in Frameworks */,
+				E609324F2FBD562C005EF26B /* SettingsKit in Frameworks */,
+				E672654E2FBAF17400571ACF /* SettingsKit in Frameworks */,
+				E67265442FBAF17400571ACF /* AntiqueKit in Frameworks */,
+				E60932492FBD562C005EF26B /* ConstraintKit in Frameworks */,
+				E672654C2FBAF17400571ACF /* OnboardingKit in Frameworks */,
+				E665BF2F2E87E16D003DB57D /* XMLCoder in Frameworks */,
+			);
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		E665BF0A2E87C19B003DB57D = {
+			isa = PBXGroup;
+			children = (
+				E665BF152E87C19C003DB57D /* Fuely */,
+				E665BF142E87C19C003DB57D /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		E665BF142E87C19C003DB57D /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				E665BF132E87C19C003DB57D /* Fuely.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		E665BF122E87C19B003DB57D /* Fuely */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = E665BF262E87C19D003DB57D /* Build configuration list for PBXNativeTarget "Fuely" */;
+			buildPhases = (
+				E665BF0F2E87C19B003DB57D /* Sources */,
+				E665BF102E87C19B003DB57D /* Frameworks */,
+				E665BF112E87C19B003DB57D /* Resources */,
+			);
+			buildRules = (
+			);
+			fileSystemSynchronizedGroups = (
+				E665BF152E87C19C003DB57D /* Fuely */,
+			);
+			name = Fuely;
+			packageProductDependencies = (
+				E665BF2E2E87E16D003DB57D /* XMLCoder */,
+				E665BF342E87F399003DB57D /* OnboardingKit */,
+				E67265432FBAF17400571ACF /* AntiqueKit */,
+				E67265452FBAF17400571ACF /* ColourKit */,
+				E67265472FBAF17400571ACF /* ConstraintKit */,
+				E67265492FBAF17400571ACF /* FontKit */,
+				E672654B2FBAF17400571ACF /* OnboardingKit */,
+				E672654D2FBAF17400571ACF /* SettingsKit */,
+				E60932442FBD562C005EF26B /* AntiqueKit */,
+				E60932462FBD562C005EF26B /* ColourKit */,
+				E60932482FBD562C005EF26B /* ConstraintKit */,
+				E609324A2FBD562C005EF26B /* FontKit */,
+				E609324C2FBD562C005EF26B /* OnboardingKit */,
+				E609324E2FBD562C005EF26B /* SettingsKit */,
+			);
+			productName = Fuely;
+			productReference = E665BF132E87C19C003DB57D /* Fuely.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		E665BF0B2E87C19B003DB57D /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 2600;
+				LastUpgradeCheck = 2610;
+				TargetAttributes = {
+					E665BF122E87C19B003DB57D = {
+						CreatedOnToolsVersion = 26.0.1;
+					};
+				};
+			};
+			buildConfigurationList = E665BF0E2E87C19B003DB57D /* Build configuration list for PBXProject "Fuely" */;
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = E665BF0A2E87C19B003DB57D;
+			minimizedProjectReferenceProxies = 1;
+			packageReferences = (
+				E665BF2D2E87E16D003DB57D /* XCRemoteSwiftPackageReference "XMLCoder" */,
+				E60932432FBD562C005EF26B /* XCRemoteSwiftPackageReference "AntiqueKit" */,
+			);
+			preferredProjectObjectVersion = 90;
+			productRefGroup = E665BF142E87C19C003DB57D /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				E665BF122E87C19B003DB57D /* Fuely */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		E665BF112E87C19B003DB57D /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			files = (
+			);
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		E665BF0F2E87C19B003DB57D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			files = (
+			);
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		E665BF272E87C19D003DB57D /* Debug configuration for PBXNativeTarget "Fuely" */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = "App Icon";
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = Z3ZEABYY6P;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Fuely/Info.plist;
+				INFOPLIST_KEY_ITSAppUsesNonExemptEncryption = NO;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.utilities";
+				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "Fuely requires access to Location to provide details of fuel stations based on your current location";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Fuely requires access to Location to provide details of fuel stations based on your current location";
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.1;
+				PRODUCT_BUNDLE_IDENTIFIER = com.antique.Fuely;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_DEFAULT_ACTOR_ISOLATION = MainActor;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Debug;
+		};
+		E665BF282E87C19D003DB57D /* Release configuration for PBXNativeTarget "Fuely" */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = "App Icon";
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = Z3ZEABYY6P;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Fuely/Info.plist;
+				INFOPLIST_KEY_ITSAppUsesNonExemptEncryption = NO;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.utilities";
+				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "Fuely requires access to Location to provide details of fuel stations based on your current location";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Fuely requires access to Location to provide details of fuel stations based on your current location";
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.1;
+				PRODUCT_BUNDLE_IDENTIFIER = com.antique.Fuely;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_DEFAULT_ACTOR_ISOLATION = MainActor;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Release;
+		};
+		E665BF292E87C19D003DB57D /* Debug configuration for PBXProject "Fuely" */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEVELOPMENT_TEAM = Z3ZEABYY6P;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 26.0;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		E665BF2A2E87C19D003DB57D /* Release configuration for PBXProject "Fuely" */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEVELOPMENT_TEAM = Z3ZEABYY6P;
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 26.0;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		E665BF0E2E87C19B003DB57D /* Build configuration list for PBXProject "Fuely" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E665BF292E87C19D003DB57D /* Debug configuration for PBXProject "Fuely" */,
+				E665BF2A2E87C19D003DB57D /* Release configuration for PBXProject "Fuely" */,
+			);
+			defaultConfigurationName = Release;
+		};
+		E665BF262E87C19D003DB57D /* Build configuration list for PBXNativeTarget "Fuely" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E665BF272E87C19D003DB57D /* Debug configuration for PBXNativeTarget "Fuely" */,
+				E665BF282E87C19D003DB57D /* Release configuration for PBXNativeTarget "Fuely" */,
+			);
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		E60932432FBD562C005EF26B /* XCRemoteSwiftPackageReference "AntiqueKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/jarrodnorwell/AntiqueKit";
+			requirement = {
+				branch = main;
+				kind = branch;
+			};
+		};
+		E665BF2D2E87E16D003DB57D /* XCRemoteSwiftPackageReference "XMLCoder" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/CoreOffice/XMLCoder";
+			requirement = {
+				branch = main;
+				kind = branch;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		E60932442FBD562C005EF26B /* AntiqueKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = E60932432FBD562C005EF26B /* XCRemoteSwiftPackageReference "AntiqueKit" */;
+			productName = AntiqueKit;
+		};
+		E60932462FBD562C005EF26B /* ColourKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = E60932432FBD562C005EF26B /* XCRemoteSwiftPackageReference "AntiqueKit" */;
+			productName = ColourKit;
+		};
+		E60932482FBD562C005EF26B /* ConstraintKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = E60932432FBD562C005EF26B /* XCRemoteSwiftPackageReference "AntiqueKit" */;
+			productName = ConstraintKit;
+		};
+		E609324A2FBD562C005EF26B /* FontKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = E60932432FBD562C005EF26B /* XCRemoteSwiftPackageReference "AntiqueKit" */;
+			productName = FontKit;
+		};
+		E609324C2FBD562C005EF26B /* OnboardingKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = E60932432FBD562C005EF26B /* XCRemoteSwiftPackageReference "AntiqueKit" */;
+			productName = OnboardingKit;
+		};
+		E609324E2FBD562C005EF26B /* SettingsKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = E60932432FBD562C005EF26B /* XCRemoteSwiftPackageReference "AntiqueKit" */;
+			productName = SettingsKit;
+		};
+		E665BF2E2E87E16D003DB57D /* XMLCoder */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = E665BF2D2E87E16D003DB57D /* XCRemoteSwiftPackageReference "XMLCoder" */;
+			productName = XMLCoder;
+		};
+		E665BF342E87F399003DB57D /* OnboardingKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = OnboardingKit;
+		};
+		E67265432FBAF17400571ACF /* AntiqueKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = AntiqueKit;
+		};
+		E67265452FBAF17400571ACF /* ColourKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = ColourKit;
+		};
+		E67265472FBAF17400571ACF /* ConstraintKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = ConstraintKit;
+		};
+		E67265492FBAF17400571ACF /* FontKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = FontKit;
+		};
+		E672654B2FBAF17400571ACF /* OnboardingKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = OnboardingKit;
+		};
+		E672654D2FBAF17400571ACF /* SettingsKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = SettingsKit;
+		};
+/* End XCSwiftPackageProductDependency section */
+	};
+	rootObject = E665BF0B2E87C19B003DB57D /* Project object */;
+}
