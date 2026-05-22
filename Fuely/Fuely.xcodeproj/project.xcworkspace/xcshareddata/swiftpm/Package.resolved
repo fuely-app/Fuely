@@ -1,0 +1,24 @@
+{
+  "originHash" : "9d62a25818ffe07d1fcc423125447ce1e07a2d1c26f7d8c2b8bf119f67d3d996",
+  "pins" : [
+    {
+      "identity" : "antiquekit",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/jarrodnorwell/AntiqueKit",
+      "state" : {
+        "branch" : "main",
+        "revision" : "89cd4b4d88ffd9322502cd81005b15e2d06888ee"
+      }
+    },
+    {
+      "identity" : "xmlcoder",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/CoreOffice/XMLCoder",
+      "state" : {
+        "branch" : "main",
+        "revision" : "42f62383dbcd074440cb1f6a750b9c02df9e7325"
+      }
+    }
+  ],
+  "version" : 3
+}
