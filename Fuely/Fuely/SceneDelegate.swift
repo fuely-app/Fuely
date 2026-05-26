@@ -21,12 +21,14 @@ class SceneDelegate : UIResponder, UIWindowSceneDelegate {
             return
         }
         
+        UserDefaults.standard.set(UserDefaults.standard.bool(forKey: "fuely.2.0.onboardingComplete"), forKey: "fuely.onboardingComplete")
+        
         // UserDefaults.standard.removePersistentDomain(forName: Bundle.main.bundleIdentifier!)
         onboardingModel.locationAccess.checkAuthorisationStatus()
-        UserDefaults.standard.set(onboardingModel.locationAccess.authorised, forKey: "fuely.2.0.locationAccessGranted")
+        UserDefaults.standard.set(onboardingModel.locationAccess.authorised, forKey: "fuely.locationAccessGranted")
         
         let locationAccessGranted: Bool = onboardingModel.locationAccess.authorised
-        let onboardingComplete: Bool = UserDefaults.standard.bool(forKey: "fuely.2.0.onboardingComplete")
+        let onboardingComplete: Bool = UserDefaults.standard.bool(forKey: "fuely.onboardingComplete")
         
         var settingsController: OBController {
             let image: UIImage? = UIImage(systemName: "gearshape.fill")

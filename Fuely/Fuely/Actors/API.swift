@@ -69,20 +69,38 @@ actor API {
             case .bp: 5
             case .burk: 39
             case .caltex: 6
+            case .cglFuel: 36
             case .costco: 32
+            case .dunnings: 44
+            case .eagle: 24
             case .egAmpol: 35
             case .fastFuel247: 25
+            case .fuelTech: 53
+            case .gull: 7
             case .independent: 15
             case .liberty: 10
+            case .maiseyFuels: 47
             case .metroPetroleum: 30
+            case .mobil: 11
+            case .omgCaltex: 48
+            case .omgMetro: 49
+            case .perrys: 45
             case .petroFuels: 40
+            case .phoenix: 38
+            case .puma: 26
             case .reddyExpress: 43
             case .shell: 14
+            case .solo: 50
             case .ugo: 46
             case .united: 23
             case .vibe: 27
+            case .waFuels: 31
             case .xConvenience: 37
-            default: nil
+            case .fdwa,
+                    .ior,
+                    .mogas,
+                    .questFuel:
+                nil
             }
         }
         
@@ -147,7 +165,7 @@ actor API {
              capel = 19,
              dardanup = 20,
              greenough = 21,
-             harvay = 22,
+             harvey = 22,
              murray = 23,
              waroona = 24,
              metroNorthOfRiver = 25,
@@ -159,7 +177,7 @@ actor API {
              donnybrookBalingup = 31,
              manjimup = 32,
              cataby = 33,
-             collgardie = 34,
+             coolgardie = 34,
              cunderdin = 35,
              dalwallinu = 36,
              denmark = 37,
@@ -173,10 +191,12 @@ actor API {
              kojonup = 45,
              meekatharra = 46,
              moora = 47,
-             mtBarker = 48,
+             mountBarker = 48,
              newman = 49,
              norseman = 50,
              ravensthorpe = 51,
+             bodallin = 63,
+             northamShire = 62,
              tammin = 53,
              williams = 54,
              wubin = 55,
@@ -210,7 +230,6 @@ actor API {
             case .capel: "Capel"
             case .dardanup: "Dardanup"
             case .greenough: "Greenough"
-            case .harvay: "Harvay"
             case .murray: "Murray"
             case .waroona: "Waroona"
             case .metroNorthOfRiver: "Metro : North of River"
@@ -222,7 +241,6 @@ actor API {
             case .donnybrookBalingup: "Donnybrook / Balingup"
             case .manjimup: "Manjimup"
             case .cataby: "Cataby"
-            case .collgardie: "Collgardie"
             case .cunderdin: "Cunderdin"
             case .dalwallinu: "Dalwallinu"
             case .denmark: "Denmark"
@@ -236,7 +254,6 @@ actor API {
             case .kojonup: "Kojonup"
             case .meekatharra: "Meekatharra"
             case .moora: "Moora"
-            case .mtBarker: "Mt Barker"
             case .newman: "Newman"
             case .norseman: "Norseman"
             case .ravensthorpe: "Ravensthorpe"
@@ -249,6 +266,11 @@ actor API {
             case .wundowie: "Wundowie"
             case .northBannister: "North Bannister"
             case .munglinup: "Munglinup"
+            case .harvey: "Harvey"
+            case .coolgardie: "Coolgardie"
+            case .mountBarker: "Mount Barker"
+            case .bodallin: "Bodallin"
+            case .northamShire: "Northam Shire"
             }
         }
         

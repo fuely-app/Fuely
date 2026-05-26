@@ -220,6 +220,7 @@ extension MapController : MKMapViewDelegate {
     
     func mapView(_ mapView: MKMapView, viewFor annotation: any MKAnnotation) -> MKAnnotationView? {
         let annotationView: MKMarkerAnnotationView = MKMarkerAnnotationView(annotation: annotation, reuseIdentifier: nil)
+        annotationView.glyphImage = UIImage(systemName: "fuelpump.fill")
         annotationView.markerTintColor = .tintColor
         return annotationView
     }

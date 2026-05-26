@@ -16,7 +16,7 @@ class TabController : UITabBarController {
             UITab(title: "Stations", image: UIImage(systemName: "fuelpump"), identifier: "stations") { tab in
                 UINavigationController(rootViewController: StationsController(collectionViewLayout: LayoutManager.main))
             },
-            UITab(title: "Compass", image: UIImage(systemName: "safari"), identifier: "compass") { tab in
+            UITab(title: "Compass", image: UIImage(systemName: "arrow.up.right.circle"), identifier: "compass") { tab in
                 CompassController()
             },
             UITab(title: "Map", image: UIImage(systemName: "map"), identifier: "map") { tab in

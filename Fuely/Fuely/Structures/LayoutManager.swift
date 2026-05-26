@@ -13,8 +13,12 @@ struct LayoutManager {
         configuration.interSectionSpacing = 20.0
         
         return UICollectionViewCompositionalLayout(sectionProvider: { sectionIndex, layoutEnvironment in
+            let isLandscape: Bool = layoutEnvironment.container.effectiveContentSize.width > layoutEnvironment.container.effectiveContentSize.height
+            let ratio: CGFloat = UIDevice.current.userInterfaceIdiom == .pad ? (1.0 / 3.0) : (1.0 / 2.0)
+            
+            
             let estimatedLayoutDimension: NSCollectionLayoutDimension = NSCollectionLayoutDimension.estimated(300)
-            let halfWidthLayoutDimension: NSCollectionLayoutDimension = NSCollectionLayoutDimension.fractionalWidth(1.0)
+            let halfWidthLayoutDimension: NSCollectionLayoutDimension = NSCollectionLayoutDimension.fractionalWidth(isLandscape ? ratio : 1.0)
             let fullWidthLayoutDimension: NSCollectionLayoutDimension = NSCollectionLayoutDimension.fractionalWidth(1.0)
             
             let itemSize: NSCollectionLayoutSize = NSCollectionLayoutSize(widthDimension: halfWidthLayoutDimension,
@@ -36,6 +40,7 @@ struct LayoutManager {
                                                             alignment: .top)
             ]
             section.contentInsets.leading = 20.0
+            section.contentInsets.bottom = 20.0
             section.contentInsets.trailing = 20.0
             section.interGroupSpacing = 20.0
             return section

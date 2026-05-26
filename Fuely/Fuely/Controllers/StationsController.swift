@@ -9,7 +9,8 @@ import UIKit
 
 class StationsController : UICollectionViewController {
     var dataSource: UICollectionViewDiffableDataSource<String, API.Item>? = nil
-    var snapshot: NSDiffableDataSourceSnapshot<String, API.Item>? = nil
+    var snapshot: NSDiffableDataSourceSnapshot<String, API.Item>? = nil,
+        searchSnapshot: NSDiffableDataSourceSnapshot<String, API.Item>? = nil
     
     var api: API = API()
     
@@ -17,6 +18,8 @@ class StationsController : UICollectionViewController {
     var product: API.Product? = nil
     var region: API.Region? = nil
     var suburb: API.Suburb? = nil
+    
+    var toolbar: UIToolbar = UIToolbar()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -56,22 +59,20 @@ class StationsController : UICollectionViewController {
                 }
             }
             
-            let suburbElements: [UIAction] = API.Suburb.allCases.sorted().map { suburb in
-                return .init(title: suburb.string, state: self.suburb == suburb ? .on : .off) { _ in
-                    self.suburb = if self.suburb == suburb {
-                        nil
-                    } else {
-                        suburb
-                    }
+            completion([
+                UIMenu(title: "Company", image: UIImage(systemName: "building.fill"),
+                       children: brandElements),
+                UIMenu(title: "Type", image: UIImage(systemName: "fuelpump.fill"),
+                       children: productElements),
+                UIMenu(title: "Region", image: UIImage(systemName: "globe.asia.australia.fill"),
+                       children: regionElements),
+                UIAction(title: "Surrounding", state: UserDefaults.standard.bool(forKey: "fuely.includeSurrounding") ? .on : .off) { action in
+                    var old: Bool =  UserDefaults.standard.bool(forKey: "fuely.includeSurrounding")
+                    old.toggle()
+                    UserDefaults.standard.set(old, forKey: "fuely.includeSurrounding")
+                    
                     self.fetch()
                 }
-            }
-            
-            completion([
-                UIMenu(title: "Brands", children: brandElements),
-                UIMenu(title: "Products", children: productElements),
-                UIMenu(title: "Regions", children: regionElements),
-                UIMenu(title: "Suburbs", children: suburbElements)
             ])
         }
         
@@ -79,17 +80,43 @@ class StationsController : UICollectionViewController {
             navigationController.navigationBar.prefersLargeTitles = true
         }
         navigationItem.largeTitle = "Stations"
-        // navigationItem.largeSubtitle = "Searching fuel stations"
         navigationItem.trailingItemGroups = [
             UIBarButtonItemGroup(barButtonItems: [
                 UIBarButtonItem(image: UIImage(systemName: "line.3.horizontal.decrease"),
-                                menu: UIMenu(children: [filteredElements]))
+                                menu: UIMenu(preferredElementSize: .medium,
+                                             children: [filteredElements]))
             ], representativeItem: nil)
         ]
         navigationItem.style = .browser
         navigationItem.title = navigationItem.largeTitle
         // navigationItem.subtitle = "Searching fuel stations"
         view.backgroundColor = .systemBackground
+        
+        let done: UIBarButtonItem = UIBarButtonItem(systemItem: .search, primaryAction: UIAction { action in
+            guard let searchController: UISearchController = self.navigationItem.searchController else {
+                return
+            }
+            
+            searchController.searchBar.endEditing(false)
+            self.searchBarSearchButtonClicked(searchController.searchBar)
+        })
+        done.style = .prominent
+        
+        toolbar.items = [
+            UIBarButtonItem(systemItem: .flexibleSpace),
+            done
+        ]
+        
+        toolbar.sizeToFit()
+        toolbar.frame.size.height += 20.0
+        
+        let searchController: UISearchController = UISearchController(searchResultsController: nil)
+        searchController.delegate = self
+        searchController.scopeBarActivation = .onSearchActivation
+        searchController.searchBar.delegate = self
+        searchController.searchBar.scopeButtonTitles = ["Address", "$", "$$$"]
+        navigationItem.searchController = searchController
+        
         
         let headerCellRegistration: UICollectionView.SupplementaryRegistration<UICollectionViewListCell> = .init(elementKind: UICollectionView.elementKindSectionHeader) { supplementaryView, elementKind, indexPath in
             var contentConfiguration = UIListContentConfiguration.extraProminentInsetGroupedHeader()
@@ -161,7 +188,8 @@ class StationsController : UICollectionViewController {
             try await api.query(brand: brand,
                                 product: product,
                                 region: region,
-                                suburb: suburb)
+                                suburb: suburb,
+                                surrounding: UserDefaults.standard.bool(forKey: "fuely.includeSurrounding"))
         }
         
         Task {
@@ -186,7 +214,7 @@ class StationsController : UICollectionViewController {
                 await dataSource.apply(snapshot)
                 self.snapshot = snapshot
                 
-                navigationItem.largeSubtitle = "\(result.items.count) price\(result.items.count == 1 ? "" : "s") available"
+                navigationItem.largeSubtitle = "\(result.items.count) station\(result.items.count == 1 ? "" : "s") available"
                 navigationItem.subtitle = navigationItem.largeSubtitle
             case .failure(let error):
                 print(error, error.localizedDescription)
@@ -198,5 +226,65 @@ class StationsController : UICollectionViewController {
 extension StationsController : UISearchBarDelegate, UISearchControllerDelegate, UISearchResultsUpdating {
     func updateSearchResults(for searchController: UISearchController) {
         
+    }
+    
+    func searchBar(_ searchBar: UISearchBar, selectedScopeButtonIndexDidChange selectedScope: Int) {
+        if [1, 2].contains(selectedScope) {
+            searchBar.inputAccessoryView = toolbar
+            searchBar.keyboardType = .decimalPad
+        } else {
+            searchBar.inputAccessoryView = nil
+            searchBar.keyboardType = .default
+        }
+        
+        searchBar.reloadInputViews()
+    }
+    
+    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+        guard let dataSource, let snapshot else {
+            return
+        }
+        
+        if !searchSnapshot.isNil {
+            searchSnapshot = nil
+        }
+        
+        Task {
+            await dataSource.apply(snapshot)
+        }
+    }
+    
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        guard let text: String = searchBar.text,
+              !text.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty else {
+            return
+        }
+        
+        let selectedScopeButtonIndex: Int = searchBar.selectedScopeButtonIndex
+        
+        let trimmedText: String = text.trimmingCharacters(in: .whitespacesAndNewlines)
+        
+        searchSnapshot = NSDiffableDataSourceSnapshot<String, API.Item>()
+        guard let dataSource, let snapshot, var searchSnapshot else {
+            return
+        }
+        
+        searchSnapshot.appendSections(["Search Results"])
+        searchSnapshot.appendItems(snapshot.itemIdentifiers.filter { itemIdentifier in
+            return switch selectedScopeButtonIndex {
+            case 0:
+                itemIdentifier.address.localizedCaseInsensitiveContains(trimmedText)
+            case 1:
+                itemIdentifier.price <= 100 * (Double(trimmedText) ?? 0)
+            case 2:
+                itemIdentifier.price >= 100 * (Double(trimmedText) ?? 0)
+            default:
+                itemIdentifier.brand.string.localizedCaseInsensitiveContains(trimmedText)
+            }
+        }.sorted(), toSection: "Search Results")
+        
+        Task {
+            await dataSource.apply(searchSnapshot)
+        }
     }
 }

@@ -13,23 +13,58 @@ import OnboardingKit
 import UIKit
 
 class StationCell : UICollectionViewCell {
+    var visualEffectView: UIVisualEffectView? = nil
+    
     var label: UILabel? = nil,
-        secondaryLabel: UILabel? = nil
+        secondaryLabel: UILabel? = nil,
+        tertiaryLabel: UILabel? = nil
     
     var mapView: MKMapView? = nil
+    
+    var callButton: UIButton? = nil
+    
+    var effect: UIGlassEffect = UIGlassEffect(style: .regular)
     
     override init(frame: CGRect) {
         super.init(frame: frame)
         backgroundColor = .clear
         contentView.backgroundColor = backgroundColor
         
-        let effect: UIGlassEffect = UIGlassEffect(style: .regular)
-        effect.isInteractive = true
-        
-        let visualEffectView: UIVisualEffectView = UIVisualEffectView(effect: effect)
+        visualEffectView = UIVisualEffectView(effect: effect)
+        guard let visualEffectView else {
+            return
+        }
         visualEffectView.translatesAutoresizingMaskIntoConstraints = false
         visualEffectView.cornerConfiguration = UICornerConfiguration.uniformCorners(radius: UICornerRadius.fixed(32.0))
         insertSubview(visualEffectView, belowSubview: self)
+        
+        let configuration: UIButton.Configuration = .configuration(.medium, .capsule,
+                                                                   UIImage(systemName: "phone.fill"), nil,
+                                                                   .medium, .systemGreen)
+        
+        callButton = UIButton(configuration: configuration, primaryAction: UIAction { action in
+            guard let url: URL = URL(string: "tel://\(self.phoneNumber)"), UIApplication.shared.canOpenURL(url) else {
+                return
+            }
+            
+            UIApplication.shared.open(url)
+        })
+        guard let callButton else {
+            return
+        }
+        callButton.translatesAutoresizingMaskIntoConstraints = false
+        callButton.configurationUpdateHandler = { button in
+            button.isEnabled = self.hasPhoneNumber
+            guard var configuration: UIButton.Configuration = button.configuration else {
+                return
+            }
+            
+            configuration.baseForegroundColor = .white
+            configuration.baseBackgroundColor = self.hasPhoneNumber ? .systemGreen : .systemGray
+            
+            button.configuration = configuration
+        }
+        addSubview(callButton)
         
         label = UILabel()
         guard let label else {
@@ -53,6 +88,17 @@ class StationCell : UICollectionViewCell {
         secondaryLabel.textColor = .tintColor
         addSubview(secondaryLabel)
         
+        tertiaryLabel = UILabel()
+        guard let tertiaryLabel else {
+            return
+        }
+        tertiaryLabel.translatesAutoresizingMaskIntoConstraints = false
+        tertiaryLabel.font = UIFont.regular(from: .callout)
+        tertiaryLabel.text = "Address"
+        tertiaryLabel.textAlignment = .left
+        tertiaryLabel.textColor = .secondaryLabel
+        addSubview(tertiaryLabel)
+        
         mapView = MKMapView()
         guard let mapView else {
             return
@@ -69,17 +115,25 @@ class StationCell : UICollectionViewCell {
             visualEffectView.bottom.constraint(equalTo: salg.bottom),
             visualEffectView.right.constraint(equalTo: salg.right),
             
+            callButton.top.constraint(equalTo: salg.top, constant: 20.0),
+            callButton.right.constraint(equalTo: salg.right, constant: -20.0),
+            callButton.width.constraint(equalTo: callButton.salg.height, multiplier: 3.0 / 2.0),
+            
             label.top.constraint(equalTo: salg.top, constant: 20.0),
             label.left.constraint(equalTo: salg.left, constant: 20.0),
             
             secondaryLabel.top.constraint(equalTo: salg.top, constant: 20.0),
             secondaryLabel.left.constraint(equalTo: label.salg.right, constant: 8.0),
-            secondaryLabel.right.constraint(lessThanOrEqualTo: salg.right, constant: -20.0),
+            secondaryLabel.right.constraint(lessThanOrEqualTo: callButton.salg.left, constant: -20.0),
             
-            mapView.top.constraint(equalTo: secondaryLabel.salg.bottom, constant: 20.0),
+            tertiaryLabel.top.constraint(equalTo: label.salg.bottom, constant: 8.0),
+            tertiaryLabel.left.constraint(equalTo: salg.left, constant: 20.0),
+            tertiaryLabel.right.constraint(lessThanOrEqualTo: callButton.salg.left, constant: -20.0),
+            
+            mapView.top.constraint(equalTo: tertiaryLabel.salg.bottom, constant: 20.0),
             mapView.left.constraint(equalTo: salg.left, constant: 20.0),
             mapView.right.constraint(equalTo: salg.right, constant: -20.0),
-            mapView.height.constraint(equalTo: mapView.salg.width, multiplier: 3.0 / 7.0),
+            mapView.height.constraint(equalTo: mapView.salg.width, multiplier: 3.0 / 9.0),
             mapView.bottom.constraint(equalTo: salg.bottom, constant: -20.0)
         ])
     }
@@ -88,13 +142,27 @@ class StationCell : UICollectionViewCell {
         fatalError("init(coder:) has not been implemented")
     }
     
+    var hasPhoneNumber: Bool = true
+    var phoneNumber: String = ""
     func set(station: API.Item) {
-        guard let label, let secondaryLabel, let mapView else {
+        guard let label, let secondaryLabel, let tertiaryLabel, let mapView else {
             return
+        }
+        
+        phoneNumber = station.phone.trimmingCharacters(in: .whitespacesAndNewlines)
+        hasPhoneNumber = !phoneNumber.isEmpty
+        if let callButton {
+            callButton.setNeedsUpdateConfiguration()
+        }
+        
+        var tertiaryString: String = station.address.capitalized
+        if hasPhoneNumber {
+            tertiaryString.append(", \(phoneNumber.capitalized)")
         }
         
         label.text = station.brand.string
         secondaryLabel.text = String(format: "$%.2f", station.price / 100.0)
+        tertiaryLabel.text = tertiaryString
         
         let coordinate: CLLocationCoordinate2D = CLLocationCoordinate2D(latitude: station.latitude,
                                                                         longitude: station.longitude)
@@ -111,6 +179,7 @@ class StationCell : UICollectionViewCell {
 extension StationCell : MKMapViewDelegate {
     func mapView(_ mapView: MKMapView, viewFor annotation: any MKAnnotation) -> MKAnnotationView? {
         let annotationView: MKMarkerAnnotationView = MKMarkerAnnotationView(annotation: annotation, reuseIdentifier: nil)
+        annotationView.glyphImage = UIImage(systemName: "fuelpump.fill")
         annotationView.markerTintColor = .tintColor
         return annotationView
     }

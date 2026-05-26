@@ -105,8 +105,8 @@ extension OnboardingModel : CLLocationManagerDelegate {
             return
         }
         
-        UserDefaults.standard.set(result, forKey: "fuely.2.0.locationAccessGranted")
-        UserDefaults.standard.set(true, forKey: "fuely.2.0.onboardingComplete")
+        UserDefaults.standard.set(result, forKey: "fuely.locationAccessGranted")
+        UserDefaults.standard.set(true, forKey: "fuely.onboardingComplete")
         
         if result {
             let viewController: TabController = TabController()
